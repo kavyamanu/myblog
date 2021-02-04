@@ -11,6 +11,7 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
     <div className={styles.container}>
       <Head>
         <link rel='icon' href='/favicon.ico' />
+        <title>Kavya Manupati</title>
         <meta
           name='description'
           content='Technical topics that span across front-end, back-end and CI CD'
