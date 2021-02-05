@@ -20,9 +20,12 @@ To describe state mutations, we have to write a function that takes the previous
 
 <code>
 function reducer (state, action) {
+
 return nextState;
+
 }
 </code>
+
 ---
 
 **createStore** a redux component that returns an object of methods like getState, dispatch, subscribe.
@@ -104,8 +107,8 @@ getChildContext(){
 return{
 store : props.store
 };
-}         //this store will be passed as context to
-// children and grand children bind inside provider
+}         /*this store will be passed as context to
+ children and grand children bind inside provider*/
 return(props.children);
 };
 ```
@@ -115,8 +118,8 @@ return(props.children);
 ```javascript
 Provider.childContextTypes = {
 store : React.propTypes.object
-} ;         // if this is not specified no child will
-//receive store as a context.
+} ;         /* if this is not specified no child will
+receive store as a context.*/
 ```
 
 we have to specify this for each child components as well to receive the context.
