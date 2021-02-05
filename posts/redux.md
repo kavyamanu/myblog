@@ -8,7 +8,7 @@ For state maintenance
 
 *State :*
 
-When any operation or an event happened in a web page, the state of that page stores a component's dynamic data and determines the component's behaviour. state is simply a javascript object.
+When any operation or an event happened in a web page, the state of that page stores component's dynamic data and determines the component's behaviour. state is simply a javascript object.
 
 Example: when a button is clicked to open a form, then the button clicked will be true, an empty object will be opened for the newly opened form and every change made to the app will result in updating the state object. this is called the state or the state tree.
 
@@ -18,9 +18,13 @@ Example: when a button is clicked to open a form, then the button clicked will b
 
 To describe state mutations, we have to write a function that takes the previous state of the app, action being dispatched and returns a next state of the app, this function must be a pure function. this function is called the reducer.
 
-``function **reducer** (state, action) {``
-``return nextState;``
-``}``
+```javascript
+function **reducer** (state, action) {
+
+return nextState;
+
+}
+```
 
 ---
 
@@ -40,27 +44,31 @@ subscribe- will render the changes to the app.
 
 example:
 
-``import {connect} from 'react-redux'``
+```javascript
+import {connect} from 'react-redux'
 
-``const Parent1 = connect(function1, function2)(Parent2);``
+const Parent1 = connect(function1, function2)(Parent2);
 
-``function1 (){``
-``return {data}``
-``}``
+function1 (){
+return {data}
+}
 
-``function2 (){``
-``return {id}``
-``}``
+function2 (){
+return {id}
+}
+```
 
 below does the same job without connect.
 
-``const Parent1 = (props )⇒{``
+```javascript
+const Parent1 = (props )⇒{
 
-``return(``
-``<Parent2  prop1 = {data} prop2 = {id}>``
-``);``
+return(
+<Parent2  prop1 = {data} prop2 = {id}>
+);
 
-``}``
+}
+```
 
 ---
 
@@ -72,34 +80,44 @@ To pass properties to child components in a neat way by using provider component
 Instead of passing props to parent component we can bind that component with provider and pass props to provider component.
 before :
 
-``ReactDOM.render(<App store = {createStore(reducer)}/>, document.getElementById('root'));``
+```javascript
+ReactDOM.render(<App store = {createStore(reducer)}/>, document.getElementById('root'));
+```
 
 After:
 
-``ReactDOM.render(<Provider store = {createStore(reducer)}>``
-``<App/>``
-``</Provider>, document.getElementById('root'));``
+```javascript
+ReactDOM.render(<Provider store = {createStore(reducer)}>
+<App/>
+</Provider>, document.getElementById('root'));
+```
 
 provider component can be imported from react-redux
 
-``import {Provider} from 'react-redux';``
+```javascript
+import {Provider} from 'react-redux';
+```
 
 **What exactly will Provider do** :
 
-``const Provider = ()=>{``
-``getChildContext(){``
-``return{``
-``store : props.store``
-``};``
-``}        // this store will be passed as context to children and grand children bind inside provider``
-``return(props.children);``
-``};``
+```javascript
+const Provider = ()=>{
+getChildContext(){
+return{
+store : props.store
+};
+}        // this store will be passed as context to children and grand children bind inside provider
+return(props.children);
+};
+```
 
 **condition for this context to work :**
 
-``Provider.childContextTypes = {``
-``store : React.propTypes.object``
-``} ;      // if this is not specified no child will receive store as a context.``
+```javascript
+Provider.childContextTypes = {
+store : React.propTypes.object
+} ;         // if this is not specified no child will receive store as a context.
+```
 
 we have to specify this for each child components as well to receive the context.
 
