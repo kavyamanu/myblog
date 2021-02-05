@@ -18,14 +18,11 @@ Example: when a button is clicked to open a form, then the button clicked will b
 
 To describe state mutations, we have to write a function that takes the previous state of the app, action being dispatched and returns a next state of the app, this function must be a pure function. this function is called the reducer.
 
-```javascript
-function **reducer** (state, action) {
-
+<code>
+function reducer (state, action) {
 return nextState;
-
 }
-```
-
+</code>
 ---
 
 **createStore** a redux component that returns an object of methods like getState, dispatch, subscribe.
@@ -81,7 +78,8 @@ Instead of passing props to parent component we can bind that component with pro
 before :
 
 ```javascript
-ReactDOM.render(<App store = {createStore(reducer)}/>, document.getElementById('root'));
+ReactDOM.render(<App store = {createStore(reducer)}/>,
+document.getElementById('root'));
 ```
 
 After:
@@ -106,7 +104,8 @@ getChildContext(){
 return{
 store : props.store
 };
-}        // this store will be passed as context to children and grand children bind inside provider
+}         //this store will be passed as context to
+// children and grand children bind inside provider
 return(props.children);
 };
 ```
@@ -116,7 +115,8 @@ return(props.children);
 ```javascript
 Provider.childContextTypes = {
 store : React.propTypes.object
-} ;         // if this is not specified no child will receive store as a context.
+} ;         // if this is not specified no child will
+//receive store as a context.
 ```
 
 we have to specify this for each child components as well to receive the context.
