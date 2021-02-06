@@ -12,7 +12,7 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <title>{siteTitle}</title>
-        <meta property="og:image" content="https://kavyamanu.netlify.app/images/profile.jpg" />
+        <meta property="og:image" content="https://twitter.com/kavyamanu_/photo" />
         <meta
           name="description"
           content="Technical topics that span across front-end, back-end and CI CD"
