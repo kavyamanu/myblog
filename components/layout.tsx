@@ -10,26 +10,21 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
   return (
     <div className={styles.container}>
       <Head>
-        <link rel='icon' href='/favicon.ico' />
-        <title>Kavya Manupati</title>
+        <link rel="icon" href="/favicon.ico" />
+        <title>{siteTitle}</title>
+        <meta property="og:image" content="https://kavyamanu.netlify.app/images/profile.jpg" />
         <meta
-          name='description'
-          content='Technical topics that span across front-end, back-end and CI CD'
+          name="description"
+          content="Technical topics that span across front-end, back-end and CI CD"
         />
-        <meta
-          property='og:image'
-          content={`https://og-image.now.sh/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
-        <meta name='og:title' content={siteTitle} />
-        <meta name='twitter:card' content='summary_large_image' />
+        <meta name="og:title" content={siteTitle} />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
         {home ? (
           <>
             <img
-              src='/images/profile.jpg'
+              src="/images/profile.jpg"
               className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
               alt={name}
             />
@@ -37,17 +32,17 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
           </>
         ) : (
           <>
-            <Link href='/'>
+            <Link href="/">
               <a>
                 <img
-                  src='/images/profile.jpg'
+                  src="/images/profile.jpg"
                   className={`${styles.headerImage} ${utilStyles.borderCircle}`}
                   alt={name}
                 />
               </a>
             </Link>
             <h2 className={utilStyles.headingLg}>
-              <Link href='/'>
+              <Link href="/">
                 <a className={utilStyles.colorInherit}>{name}</a>
               </Link>
             </h2>
@@ -57,7 +52,7 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
-          <Link href='/'>
+          <Link href="/">
             <a>← Back to home</a>
           </Link>
         </div>
